@@ -8,7 +8,8 @@ keymap.set("n", "<leader>nh", "<cmd>nohl<CR>", { desc = "Clear search highlights
 
 keymap.set("n", "<leader>so", "<cmd>so<CR>", { desc = "source new updates" })
 
-keymap.set("n", "<leader>fm", "<cmd>Explore<CR>", { desc = "Explorer" })
+-- do not work after installing nvim-tree
+-- keymap.set("n", "<leader>fm", "<cmd>Explore<CR>", { desc = "Explorer" })
 
 -- increment/decrement numbers
 keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" })
