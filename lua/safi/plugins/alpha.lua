@@ -7,13 +7,23 @@ return {
 
     -- Set header
     dashboard.section.header.val = {
-"     _    _         _       _ _             _             ____         __ _ ",
-"    / \\  | |__   __| |_   _| | | ____ _  __| | ___ _ __  / ___|  __ _ / _(_)",
-"   / _ \\ | '_ \\ / _` | | | | | |/ / _` |/ _` |/ _ \\ '__| \\___ \\ / _` | |_| |",
-"  / ___ \\| |_) | (_| | |_| | |   < (_| | (_| |  __/ |     ___) | (_| |  _| |",
-" /_/   \\_\\_.__/ \\__,_|\\__,_|_|_|\\_\\__,_|\\__,_|\\___|_|    |____/ \\__,_|_| |_|",
-"                                                                            ",
-    }
+"   SSSSSSSSSSSSSSS                      ffffffffffffffff    iiii  ",
+" SS:::::::::::::::S                    f::::::::::::::::f  i::::i ",
+"S:::::SSSSSS::::::S                   f::::::::::::::::::f  iiii  ",
+"S:::::S     SSSSSSS                   f::::::fffffff:::::f        ",
+"S:::::S              aaaaaaaaaaaaa    f:::::f       ffffffiiiiiii ",
+"S:::::S              a::::::::::::a   f:::::f             i:::::i ",
+" S::::SSSS           aaaaaaaaa:::::a f:::::::ffffff        i::::i ",
+"  SS::::::SSSSS               a::::a f::::::::::::f        i::::i ",
+"    SSS::::::::SS      aaaaaaa:::::a f::::::::::::f        i::::i ",
+"       SSSSSS::::S   aa::::::::::::a f:::::::ffffff        i::::i ",
+"            S:::::S a::::aaaa::::::a  f:::::f              i::::i ",
+"            S:::::Sa::::a    a:::::a  f:::::f              i::::i ",
+"SSSSSSS     S:::::Sa::::a    a:::::a f:::::::f            i::::::i",
+"S::::::SSSSSS:::::Sa:::::aaaa::::::a f:::::::f            i::::::i",
+"S:::::::::::::::SS  a::::::::::aa:::af:::::::f            i::::::i",
+" SSSSSSSSSSSSSSS     aaaaaaaaaa  aaaafffffffff            iiiiiiii",
+ }
 
     -- Set menu
     dashboard.section.buttons.val = {
