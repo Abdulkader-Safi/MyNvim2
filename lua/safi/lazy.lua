@@ -13,6 +13,10 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("safi.plugins", {
   checker = {
-    enable = true,
+    enabled = true,
+    notify = false,
+  },
+  change_detection = {
+    notify = false,
   },
 })
