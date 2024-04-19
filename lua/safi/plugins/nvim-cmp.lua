@@ -17,9 +17,7 @@ return {
   },
   config = function()
     local cmp = require("cmp")
-
     local luasnip = require("luasnip")
-
     local lspkind = require("lspkind")
 
     -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
@@ -52,12 +50,12 @@ return {
       }),
 
       -- configure lspkind for vs-code like pictograms in completion menu
-      formatting = {
-        format = lspkind.cp_format({
-          maxwidth = 50,
-          ellipsis_char = "...",
-        }),
-      },
+      -- formatting = {
+      --   format = lspkind.cp_format({
+      --     maxwidth = 50,
+      --     ellipsis_char = "...",
+      --   }),
+      -- },
     })
   end,
 }
