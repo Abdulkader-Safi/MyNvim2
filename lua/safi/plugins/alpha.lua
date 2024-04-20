@@ -1,5 +1,9 @@
 return {
 	"goolord/alpha-nvim",
+	dependencies = {
+		"nvim-tree/nvim-web-devicons",
+		"nvim-lua/plenary.nvim",
+	},
 	event = "vimEnter",
 	config = function()
 		local alpha = require("alpha")
@@ -35,7 +39,6 @@ return {
 			dashboard.button("q", "  > Quit NVIM", "<cmd>qa<CR>"),
 		}
 
-		-- Send config to alpha
 		alpha.setup(dashboard.opts)
 
 		-- Disable folding on alpha buffer
