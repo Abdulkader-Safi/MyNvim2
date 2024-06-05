@@ -131,7 +131,7 @@ return {
 				-- configure emmet language server
 				lspconfig["tsserver"].setup({
 					capabilities = capabilities,
-					filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less" },
+					filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "tsx" },
 					settings = {
 						completion = {
 							completeFunctionCalls = true,
@@ -139,6 +139,18 @@ return {
 					},
 				})
 			end,
+			-- ["tsx"] = function()
+			-- 	-- configure emmet language server
+			-- 	lspconfig["tsserver"].setup({
+			-- 		capabilities = capabilities,
+			-- 		filetypes = { "html", "typescriptreact", "javascriptreact", "jsx" },
+			-- 		settings = {
+			-- 			completion = {
+			-- 				completeFunctionCalls = true,
+			-- 			},
+			-- 		},
+			-- 	})
+			-- end,
 			["gopls"] = function()
 				-- configure emmet language server
 				lspconfig["gopls"].setup({

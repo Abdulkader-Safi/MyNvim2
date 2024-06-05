@@ -1,53 +1,57 @@
 return {
-  "nvim-treesitter/nvim-treesitter",
-  event = { "BufReadPre", "BufNewFile" },
-  build = ":TSUpdate",
-  dependencies = {
-    "windwp/nvim-ts-autotag",
-  },
-  config = function()
-    -- import nvim-treesitter plugin
-    local treesitter = require("nvim-treesitter.configs")
+	"nvim-treesitter/nvim-treesitter",
+	event = { "BufReadPre", "BufNewFile" },
+	build = ":TSUpdate",
+	dependencies = {
+		"windwp/nvim-ts-autotag",
+	},
+	config = function()
+		-- import nvim-treesitter plugin
+		local treesitter = require("nvim-treesitter.configs")
+		local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
 
-    -- configure treesitter
-    treesitter.setup({ -- enable syntax highlighting
-      highlight = {
-        enable = true,
-      },
-      -- enable indentation
-      indent = { enable = true },
-      -- enable autotagging (w/ nvim-ts-autotag plugin)
-      autotag = {
-        enable = true,
-      },
-      -- ensure these language parsers are installed
-      ensure_installed = {
-        "json",
-        "javascript",
-        "typescript",
-        "tsx",
-        "yaml",
-        "html",
-        "css",
-        "prisma",
-        "markdown",
-        "markdown_inline",
-        "graphql",
-        "bash",
-        "lua",
-        "dockerfile",
-        "gitignore",
-        "go",
-      },
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          init_selection = "<C-space>",
-          node_incremental = "<C-space>",
-          scope_incremental = false,
-          node_decremental = "<bs>",
-        },
-      },
-    })
-  end,
+		-- configure treesitter
+		treesitter.setup({
+			modules = {},
+			highlight = {
+				enable = true,
+				disable = {},
+			},
+			auto_install = true,
+			ignore_install = {},
+			sync_install = true,
+			indent = {
+				enable = true,
+				disable = {},
+			},
+			ensure_installed = {
+				"tsx",
+				"toml",
+				"php",
+				"json",
+				"yaml",
+				"javascript",
+				"css",
+				"html",
+				"lua",
+				"vim",
+				"json5",
+				"bash",
+				"scss",
+				"markdown",
+				"dockerfile",
+				"python",
+				"typescript",
+				"graphql",
+			},
+			autotag = {
+				enable = true,
+			},
+		})
+
+		parser_config.tsx.filetype_to_parsername = {
+			"javascript",
+			"typescript.tsx",
+		}
+	end,
 }
