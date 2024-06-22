@@ -14,10 +14,9 @@ return {
 		-- import mason_lspconfig plugin
 		local mason_lspconfig = require("mason-lspconfig")
 
+		local keymap = vim.keymap -- for conciseness
 		-- import cmp-nvim-lsp plugin
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
-
-		local keymap = vim.keymap -- for conciseness
 
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("UserLspConfig", {}),
@@ -69,7 +68,8 @@ return {
 		})
 
 		-- used to enable autocompletion (assign to every lsp server config)
-		local capabilities = cmp_nvim_lsp.default_capabilities()
+		local capabilities = cmp_nvim_lsp.capabilities
+		local on_attach = cmp_nvim_lsp.on_attach
 
 		-- Change the Diagnostic symbols in the sign column (gutter)
 		-- (not in youtube nvim video)
@@ -83,53 +83,47 @@ return {
 			-- default handler for installed servers
 			function(server_name)
 				lspconfig[server_name].setup({
+					on_attach = on_attach,
 					capabilities = capabilities,
 				})
 			end,
 			["html"] = function()
 				lspconfig["html"].setup({
 					capabilities = capabilities,
+					on_attach = on_attach,
 				})
 			end,
 			["prismals"] = function()
 				lspconfig["prismals"].setup({
 					capabilities = capabilities,
+					on_attach = on_attach,
 				})
 			end,
 			["tailwindcss"] = function()
 				lspconfig["tailwindcss"].setup({
 					capabilities = capabilities,
+					on_attach = on_attach,
 				})
 			end,
 			["graphql"] = function()
 				-- configure graphql language server
 				lspconfig["graphql"].setup({
 					capabilities = capabilities,
+					on_attach = on_attach,
 					filetypes = { "graphql", "gql", "typescriptreact", "javascriptreact" },
 				})
 			end,
 			["htmx"] = function()
 				-- configure graphql language server
 				lspconfig["htmx"].setup({
+					on_attach = on_attach,
 					capabilities = capabilities,
-				})
-			end,
-			["rust_analyzer"] = function()
-				-- configure graphql language server
-				lspconfig["rust_analyzer"].setup({
-					capabilities = capabilities,
-					settings = {
-						["rust_analyzer"] = {
-							diagnostics = {
-								enable = false,
-							},
-						},
-					},
 				})
 			end,
 			["tsserver"] = function()
 				-- configure emmet language server
 				lspconfig["tsserver"].setup({
+					on_attach = on_attach,
 					capabilities = capabilities,
 					filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "tsx" },
 					settings = {
@@ -139,21 +133,10 @@ return {
 					},
 				})
 			end,
-			-- ["tsx"] = function()
-			-- 	-- configure emmet language server
-			-- 	lspconfig["tsserver"].setup({
-			-- 		capabilities = capabilities,
-			-- 		filetypes = { "html", "typescriptreact", "javascriptreact", "jsx" },
-			-- 		settings = {
-			-- 			completion = {
-			-- 				completeFunctionCalls = true,
-			-- 			},
-			-- 		},
-			-- 	})
-			-- end,
 			["gopls"] = function()
 				-- configure emmet language server
 				lspconfig["gopls"].setup({
+					on_attach = on_attach,
 					capabilities = capabilities,
 					cmd = { "gopls" },
 					filetypes = { "go", "gomod", "gowork", "gotmpl" },
@@ -172,6 +155,7 @@ return {
 			["lua_ls"] = function()
 				-- configure lua server (with special settings)
 				lspconfig["lua_ls"].setup({
+					on_attach = on_attach,
 					capabilities = capabilities,
 					settings = {
 						Lua = {

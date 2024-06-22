@@ -9,6 +9,6 @@ return {
 		local keymap = vim.keymap
 
 		keymap.set("n", "<leader>mdss", "<cmd>MarkdownPreview<CR>", { desc = "Start MarkdownPreview" })
-		keymap.set("n", "<leader>mdst", "<cmd>MarkdownPreviewStop<CR>", { desc = "Start MarkdownPreview" })
+		keymap.set("n", "<leader>mdst", "<cmd>MarkdownPreviewStop<CR>", { desc = "Stop MarkdownPreview" })
 	end,
 }
