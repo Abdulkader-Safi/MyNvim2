@@ -16,7 +16,7 @@ return {
 
 		local keymap = vim.keymap -- for conciseness
 		-- import cmp-nvim-lsp plugin
-		local capabilities = require("cmp_nvim_lsp").capabilities
+		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("UserLspConfig", {}),
@@ -84,21 +84,26 @@ return {
 					capabilities = capabilities,
 				})
 			end,
+
 			["html"] = function()
 				lspconfig["html"].setup({
 					capabilities = capabilities,
+					filetypes = { "html", "php", "typescriptreact", "javascriptreact" },
 				})
 			end,
+
 			["prismals"] = function()
 				lspconfig["prismals"].setup({
 					capabilities = capabilities,
 				})
 			end,
+
 			["tailwindcss"] = function()
 				lspconfig["tailwindcss"].setup({
 					capabilities = capabilities,
 				})
 			end,
+
 			["graphql"] = function()
 				-- configure graphql language server
 				lspconfig["graphql"].setup({
@@ -106,28 +111,28 @@ return {
 					filetypes = { "graphql", "gql", "typescriptreact", "javascriptreact" },
 				})
 			end,
+
 			["htmx"] = function()
 				-- configure graphql language server
 				lspconfig["htmx"].setup({
 					capabilities = capabilities,
 				})
 			end,
+
 			["tsserver"] = function()
 				-- configure emmet language server
 				lspconfig["tsserver"].setup({
 					capabilities = capabilities,
 					filetypes = {
 						"html",
-						"typescriptreact",
-						"javascriptreact",
 						"css",
 						"sass",
 						"scss",
 						"less",
-						"tsx",
-						"jsx",
 						"typescript",
 						"javascript",
+						"typescriptreact",
+						"javascriptreact",
 					},
 					settings = {
 						completion = {
@@ -136,6 +141,7 @@ return {
 					},
 				})
 			end,
+
 			["gopls"] = function()
 				-- configure emmet language server
 				lspconfig["gopls"].setup({
@@ -154,6 +160,7 @@ return {
 					},
 				})
 			end,
+
 			["lua_ls"] = function()
 				-- configure lua server (with special settings)
 				lspconfig["lua_ls"].setup({
@@ -168,6 +175,23 @@ return {
 								callSnippet = "Replace",
 							},
 						},
+					},
+				})
+			end,
+
+			["phpactor"] = function()
+				-- configure lua server (with special settings)
+				lspconfig["phpactor"].setup({
+					capabilities = capabilities,
+					root_dir = function(_)
+						return vim.loop.cwd()
+					end,
+					init_options = {
+						["language_server.diagnostics_on_update"] = false,
+						["language_server.diagnostics_on_open"] = false,
+						["language_server.diagnostics_on_save"] = false,
+						["language_server_phpstan.enabled"] = false,
+						["language_server_psalm.enabled"] = false,
 					},
 				})
 			end,
