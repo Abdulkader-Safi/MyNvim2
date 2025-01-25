@@ -81,16 +81,6 @@ Code formater
 
 ---
 
-### Linting
-
-Code formater
-
-| Key       | Mode   | Description                      |
-| :-------- | :----- | :------------------------------- |
-| leader mp | normal | Trigger linting for current file |
-
----
-
 ### Markdown
 
 Markdown Preview Toggle
